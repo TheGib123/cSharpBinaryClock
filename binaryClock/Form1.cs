@@ -558,7 +558,36 @@ namespace binaryClock
       }
     }
 
+    private void button2_Click(object sender, EventArgs e)
+    {
+      //List<System.Drawing.Color> color_lst = new List<System.Drawing.Color>(new System.Drawing.Color[] { System.Drawing.Color.White, System.Drawing.Color.Red, System.Drawing.Color.Blue, System.Drawing.Color.Green, System.Drawing.Color.Orange, System.Drawing.Color.Gray, System.Drawing.Color.Brown, System.Drawing.Color.Snow, System.Drawing.Color.Gold, System.Drawing.Color.Tan, System.Drawing.Color.DarkViolet });
+      List<Color> color_lst = new List<Color>(new Color[] { Color.Red, Color.Blue, Color.Green, Color.Orange, Color.Gray, Color.Brown, Color.Snow, Color.Gold, Color.Tan, Color.DarkViolet });
+      //this.BackColor = Color.Red;
+      if (this.BackColor == SystemColors.Control)
+      {
+        this.BackColor = color_lst[0];
+      }
+      else
+      {
+        for (int i = 0; i < color_lst.Count; i++)
+        {
+          if (this.BackColor == color_lst[i])
+          {
+            if (this.BackColor == color_lst[color_lst.Count - 1])
+            {
+              this.BackColor = SystemColors.Control;
+              break;
+            }
+            else
+            {
+              this.BackColor = color_lst[i + 1];
+              break;
+            }
+          }
+        }
+      }
 
 
+    }
   }
 }
